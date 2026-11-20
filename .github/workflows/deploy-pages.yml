@@ -1,0 +1,79 @@
+name: Deploy frontend to GitHub Pages
+
+# Builds the React client and publishes it to GitHub Pages.
+# The Express API + MongoDB are hosted separately (see docs/DEPLOYMENT.md) —
+# point VITE_API_BASE_URL at that host once it is deployed.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'client/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # Install only what the client build needs (skips the server workspace).
+      # MONGOMS_DISABLE_POSTINSTALL keeps dev-only mongo tooling out of CI.
+      - name: Install dependencies
+        env:
+          MONGOMS_DISABLE_POSTINSTALL: '1'
+        run: npm ci --workspace client --include-workspace-root
+
+      - name: Build client
+        env:
+          # Project site URL: https://zeeshanshaikh95.github.io/zeesha-collection/
+          # VITE_BASE must include the repository name for Pages project sites
+          # (a trailing slash is required). Switch back to "/" when the custom
+          # domain is connected.
+          VITE_BASE: /zeesha-collection/
+          # Static-catalogue demo build: the storefront (products, cart,
+          # WhatsApp ordering) works without the API. Turn this off once the
+          # Render API + Atlas database are live and VITE_API_BASE_URL is set.
+          VITE_DEMO_MODE: 'true'
+          # Repository variable holding the deployed API origin. No fallback on
+          # purpose: a production bundle must never embed a localhost API URL.
+          VITE_API_BASE_URL: ${{ vars.VITE_API_BASE_URL }}
+          VITE_PUBLIC_SITE_URL: https://zeeshanshaikh95.github.io/zeesha-collection
+        run: npm run build --workspace client
+
+      # SPA deep links (e.g. /product/xyz) resolve through 404.html on Pages.
+      - name: Add SPA fallback
+        run: cp client/dist/index.html client/dist/404.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: client/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    font-weight: 500;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-600 ring-offset-2 ring-offset-cream;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-brand-950;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-800 text-cream shadow-soft hover:bg-brand-900 active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply btn border border-brand-300 text-brand-800 hover:border-brand-700 hover:bg-brand-50 active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn text-ink hover:bg-brand-50;
+  }
+
+  .btn-gold {
+    @apply btn border border-gold-300 bg-gold-100 text-gold-700 hover:bg-gold-200 active:scale-[0.98];
+  }
+
+  .btn-whatsapp {
+    @apply btn bg-[#1FA855] text-white shadow-soft hover:bg-[#178A45] active:scale-[0.98];
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-brand-200 bg-white px-4 py-2.5 text-sm text-ink placeholder:text-ink-soft/60 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-soft;
+  }
+
+  .card {
+    @apply rounded-blob border border-brand-100/70 bg-white shadow-card;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-medium tracking-tight text-ink sm:text-4xl md:text-[2.65rem];
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.28em] text-brand-700;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-7 bg-gold-400;
+  }
+
+  .eyebrow-center::after {
+    content: '';
+    @apply h-px w-7 bg-gold-400;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em];
+  }
+
+  .badge-pink {
+    @apply badge bg-brand-800 text-cream;
+  }
+
+  .badge-leaf {
+    @apply badge bg-gold-100 text-gold-700 ring-1 ring-gold-300/60;
+  }
+
+  .badge-stone {
+    @apply badge bg-stone-100 text-stone-600;
+  }
+
+  .badge-gold {
+    @apply badge bg-gold-100 text-gold-700;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-xl bg-brand-100/70;
+  }
+
+  .gold-rule {
+    @apply h-px bg-gradient-to-r from-transparent via-gold-300 to-transparent;
+  }
+
+  .arch-frame {
+    border-radius: 50% 50% 1.25rem 1.25rem / 32% 32% 1.25rem 1.25rem;
+  }
+
+  .hairline {
+    @apply border-gold-300/50;
+  }
+
+  .display-italic {
+    @apply font-display italic font-normal;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-gold-400 after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .surface-dark {
+    @apply bg-brand-900 text-cream;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.brand.200') transparent;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}

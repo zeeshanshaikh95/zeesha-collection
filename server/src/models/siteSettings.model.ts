@@ -1,0 +1,87 @@
+import mongoose, { Schema, model, type Model } from 'mongoose';
+
+export const WHATSAPP_TEMPLATE_DEFAULT =
+  'Hi Zeesha Collection!\n' +
+  'I would like to order the following:\n' +
+  '{{ITEMS}}\n' +
+  'Estimated total: {{TOTAL}}\n\n' +
+  'Please share availability and delivery details.';
+
+export const WHATSAPP_TEMPLATE_SINGLE_DEFAULT =
+  'Hi Zeesha Collection!\n' +
+  'I would like to order:\n' +
+  '• {{PRODUCT}}\n' +
+  '{{VARIANT_LINE}}{{QTY_LINE}}Price: {{PRICE}}\n\n' +
+  'Please share availability and delivery details.';
+
+export interface ISiteSettings {
+  businessName: string;
+  whatsappNumber: string;
+  instagramUrl: string;
+  email: string;
+  mapsUrl: string;
+  whatsappTemplate: string;
+  whatsappSingleProductTemplate: string;
+  hero: {
+    headline: string;
+    subheadline: string;
+    imageUrl: string;
+    /** Cloudinary public_id for `hero.imageUrl` (derived on save, server-side). */
+    imagePublicId: string;
+  };
+  about: {
+    intro: string;
+    story: string;
+    founderImageUrl: string;
+    /** Cloudinary public_id for `about.founderImageUrl` (derived on save, server-side). */
+    founderImagePublicId: string;
+  };
+  announcements: {
+    enabled: boolean;
+    text: string;
+  };
+  updatedAt: Date;
+}
+
+const siteSettingsSchema = new Schema<ISiteSettings>(
+  {
+    businessName: { type: String, default: 'Zeesha Collection' },
+    whatsappNumber: { type: String, default: '' },
+    instagramUrl: { type: String, default: 'https://www.instagram.com/zeesha.collection/' },
+    email: { type: String, default: '' },
+    mapsUrl: { type: String, default: '' },
+    whatsappTemplate: { type: String, default: WHATSAPP_TEMPLATE_DEFAULT },
+    whatsappSingleProductTemplate: { type: String, default: WHATSAPP_TEMPLATE_SINGLE_DEFAULT },
+    hero: {
+      headline: { type: String, default: 'Elegance, draped.' },
+      subheadline: {
+        type: String,
+        default:
+          'Premium abayas, burkhas, hijabs and pashmina — chosen for the woman who likes her modest dressing elegant, trend-forward and comfortable.',
+      },
+      imageUrl: { type: String, default: '' },
+      imagePublicId: { type: String, default: '' },
+    },
+    about: {
+      intro: {
+        type: String,
+        default:
+          'Zeesha Collection is a Surat-based abaya house built around one idea: modest dressing should feel elegant, current and comfortable — never like a compromise.',
+      },
+      story: { type: String, default: '' },
+      founderImageUrl: { type: String, default: '' },
+      founderImagePublicId: { type: String, default: '' },
+    },
+    announcements: {
+      enabled: { type: Boolean, default: true },
+      text: {
+        type: String,
+        default: 'Delivery all over India · DM us for details and availability',
+      },
+    },
+  },
+  { timestamps: true }
+);
+
+export const SiteSettings: Model<ISiteSettings> =
+  mongoose.models.SiteSettings ?? model<ISiteSettings>('SiteSettings', siteSettingsSchema);

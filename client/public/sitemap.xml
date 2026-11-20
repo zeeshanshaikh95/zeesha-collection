@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Public site URL. Update if the domain changes. -->
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/shop</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/reviews</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/gallery</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/contact</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+  <!-- Categories -->
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/category/signature-abayas</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/category/jacket-abayas</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/category/embroidered-abayas</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/category/burkhas-naqabs</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/category/hijabs-dupattas</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/category/pashmina-shawls</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Products -->
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/meher-cream-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/noor-paisley-embroidered-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/zohra-gold-tissue-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/sahar-steel-blue-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/midnight-bloom-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/ruqayya-floral-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/amara-everyday-black-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/ayzah-grey-printed-jacket-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/zaria-taupe-jacket-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/hana-handwork-jacket-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/abeer-black-blush-abaya</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/layla-soft-grey-burkha</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/sana-paisley-dupatta</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/zoya-printed-scarf</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/naira-taupe-pashmina</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://zeeshanshaikh95.github.io/zeesha-collection/product/alia-stone-work-shawl</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+</urlset>
